@@ -1,0 +1,5 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "plantuml.server": "https://www.plantuml.com/plantuml"
+
+}
