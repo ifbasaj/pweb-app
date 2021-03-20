@@ -1,4 +1,7 @@
-package br.ifba.saj.ads.pweb.app;
+package br.ifba.saj.ads.pweb.app.model;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.springframework.expression.Expression;
@@ -6,21 +9,12 @@ import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.SpelEvaluationException;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 
-import br.ifba.saj.ads.pweb.app.model.Produto;
-
-import static org.junit.Assert.*;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-
-public class AppTest {
-    public AppTest() {
+public class ProdutoTest {
+    public ProdutoTest() {
     }
 
     @Test
     public void testProdutoModelId() {
-        
-
         
         Produto produto = new Produto();
 
@@ -93,18 +87,23 @@ public class AppTest {
         }
 
     }
-
+    
     @Test
-    public void abrirConexao() {
-        try {
-            Connection conexao = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/seJbtH8iSv",
-                    "seJbtH8iSv", "S00lDxLCdK");
-            conexao.close();
-            assertTrue(true);
+    public void testProdutoModelEquals() {
+        
+        ExpressionParser parser = new SpelExpressionParser();
+        Expression exp;
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            assertTrue(false);
+        try {
+            Produto produto1 = new Produto();
+            Produto produto2 = new Produto();
+            exp = parser.parseExpression("id");
+            Integer id = 5;
+            exp.setValue(produto1,id);
+            exp.setValue(produto2,id);
+            assertEquals(produto1, produto2);
+        } catch (SpelEvaluationException e) {
+            fail(e.getMessage());
         }
 
     }
