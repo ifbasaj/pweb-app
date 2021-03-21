@@ -13,10 +13,9 @@ import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 
 import br.ifba.saj.ads.pweb.app.model.Produto;
-import br.ifba.saj.ads.pweb.app.model.ProdutoTest;
 
 public class ProdutoDAOTest {
-    
+
     private Produto produtoTeste = new Produto();
     private GenericDAO<Produto> dao = new ProdutoDAO();
 
@@ -59,37 +58,38 @@ public class ProdutoDAOTest {
         } catch (Exception e) {
             fail(e.getMessage());
         }
-
-        @Test
-        public void alterarProduto() {
-    
-            try {
-                dao.incluir(produtoTeste);
-                Produto produto2 = dao.obter(produtoTeste);
-                produto2.setNome("Teste 2");
-                dao.alterar(produto2);
-                Produto produto3 = dao.obter(produtoTeste);
-                assertEquals(produto2, produto3);
-                ReflectionAssert.assertReflectionEquals(produto2, produto3);
-                dao.excluir(produtoTeste);
-            } catch (Exception e) {
-                fail(e.getMessage());
-            }
-    
-        }
-
-        @Test
-        public void excluirProduto() {
-    
-            try {
-                dao.incluir(produtoTeste);
-                Produto produto2 = dao.obter(produtoTeste);
-                dao.excluir(produto2);
-                Produto produto3 = dao.obter(produtoTeste);
-                assertNull(produto3);
-            } catch (Exception e) {
-                fail(e.getMessage());
-            }
-    
-        }
     }
+
+    @Test
+    public void alterarProduto() {
+
+        try {
+            dao.incluir(produtoTeste);
+            Produto produto2 = dao.obter(produtoTeste);
+            produto2.setNome("Teste 2");
+            dao.alterar(produto2);
+            Produto produto3 = dao.obter(produtoTeste);
+            assertEquals(produto2, produto3);
+            ReflectionAssert.assertReflectionEquals(produto2, produto3);
+            dao.excluir(produtoTeste);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+
+    }
+
+    @Test
+    public void excluirProduto() {
+
+        try {
+            dao.incluir(produtoTeste);
+            Produto produto2 = dao.obter(produtoTeste);
+            dao.excluir(produto2);
+            Produto produto3 = dao.obter(produtoTeste);
+            assertNull(produto3);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+
+    }
+}

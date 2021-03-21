@@ -19,36 +19,6 @@
       "comparison": "included",
       "timeout": 10,
       "points": 7
-    },
-    {
-      "name": "abrirConexao",
-      "setup": "",
-      "run": "mvn -Dtest=br.ifba.saj.ads.pweb.app.AppTest#abrirConexao test",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 6
-    },
-    {
-      "name": "testProdutoModelValor",
-      "setup": "",
-      "run": "mvn -Dtest=br.ifba.saj.ads.pweb.app.AppTest#testProdutoModelValor test",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 1
-    },
-    {
-      "name": "testProdutoModelQuantidade",
-      "setup": "",
-      "run": "mvn -Dtest=br.ifba.saj.ads.pweb.app.AppTest#testProdutoModelQuantidade test",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 1
     }
   ]
 }
